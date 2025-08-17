@@ -45,7 +45,7 @@ h1 {
 /* 모든 텍스트의 줄 간격 1.4로 통일 */
 p, span, div, li, a, h1, h2, h3, h4, h5, h6, strong {
     line-height: 1.4 !important;
-    color: rgb(0, 85, 255);
+    color: gray;
 }
 
 /* 강조 텍스트 */
@@ -311,5 +311,6 @@ nav ul li a:hover {
         margin: 50px 0 0 10px;
     }
 }
+
 
 
