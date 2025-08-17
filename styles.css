@@ -23,8 +23,8 @@ body {
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: rgb(0, 85, 255);
-    background-color: #f0f6ff; /* 배경색 변경 */
+    color: gray;
+    background-color: white;
     line-height: 1.4;
     word-break: break-word;
     text-align: left;
@@ -35,8 +35,7 @@ h1 {
     font-family: 'Pretendard', sans-serif;
     font-weight: 800;
     font-size: 16px;
-    color: black
-    background-color: #f0f6ff; /* 배경색 변경 */
+    color: black;
     line-height: 1.4;
     word-break: break-word;
     text-align: left;
@@ -312,4 +311,5 @@ nav ul li a:hover {
         margin: 50px 0 0 10px;
     }
 }
+
 
