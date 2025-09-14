@@ -36,7 +36,6 @@ h1 {
     font-weight: 800;
     font-size: 16px;
     color: black;
-    line-height: 1.4;
     word-break: break-word;
     text-align: left;
     margin-bottom: 20px;
@@ -44,16 +43,9 @@ h1 {
 
 /* 모든 텍스트의 줄 간격 1.4로 통일 */
 p, span, div, li, a, h1, h2, h3, h4, h5, h6, strong {
-    font-size: 16px;
-    line-height: 1.4 !important;
+      font-size: 1rem;
+      line-height: inherit;   /* ★ 상속만 */
     color: gray;
-}
-
-/* 강조 텍스트 */
-strong, h1, h2 {
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 1.4;
 }
 
 /* === 네비게이션 스타일 === */
@@ -298,6 +290,7 @@ nav ul li a:hover {
         margin: 50px 0 0 10px;
     }
 }
+
 
 
 
