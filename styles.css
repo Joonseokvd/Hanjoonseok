@@ -94,7 +94,7 @@ nav ul li a:hover {
 
 /* 강조 스타일 */
 .highlight {
-@@ -111,188 +119,231 @@ nav ul li a:hover {
+@@ -111,188 +119,233 @@ nav ul li a:hover {
     padding-left: 0;
 }
 
@@ -240,13 +240,13 @@ nav ul li a:hover {
 }
 
 /* 뒤로가기 버튼 스타일 */
-.back-button {␊
-    position: fixed;␊
+.back-button {
+    position: fixed;
     top: 100px;
-    left: 17px;␊
-    width: 36px; /* 버튼 크기 */␊
-    height: 36px; /* 버튼 크기 */␊
-    background-color: white; /* 반투명 흰색 */␊
+    left: 17px;
+    width: 36px; /* 버튼 크기 */
+    height: 36px; /* 버튼 크기 */
+    background-color: white; /* 반투명 흰색 */
     border-radius: 50%; /* 원형 버튼 */
     display: flex;
     justify-content: center;
@@ -255,7 +255,8 @@ nav ul li a:hover {
     text-decoration: none;
     color: rgb(0, 85, 255);
     font-weight: 400;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
      z-index: 9999;
 }
 
@@ -263,6 +264,7 @@ nav ul li a:hover {
 .back-button:hover {
     background-color: rgb(0, 85, 255);
     color: white;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 
