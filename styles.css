@@ -50,7 +50,6 @@ p, span, div, li, a, h1, h2, h3, h4, h5, h6, strong {
 }
 
 /* === 네비게이션 스타일 === */
-
 nav {
     position: fixed;
     top: 0;
@@ -95,7 +94,7 @@ nav ul li a:hover {
 }
 
 .intro {
-    max-width: 600px;
+    max-width: 800px;
     min-width: 200px;
     margin: 0;
     text-align: left;
@@ -117,7 +116,23 @@ nav ul li a:hover {
 
 /* 강조 스타일 */
 .highlight {
-@@ -106,193 +114,247 @@ nav ul li a:hover {
+    font-weight: 900;
+}
+
+
+/* 영어 텍스트 */
+.eng {
+    margin-top: 40px;
+    margin-left: 120px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* === CV 페이지 스타일 === */
+.cv {
+    max-width: 600px;
+    margin: 40px 0 0 20px;
+    text-align: left;
 }
 
 /* CV 페이지에서 점 제거 */
@@ -143,7 +158,6 @@ nav ul li a:hover {
 }
 
 /* === Work 페이지 스타일 === */
-
 .work {
     padding: 40px 20px;
     max-width: 1200px;
@@ -165,9 +179,8 @@ nav ul li a:hover {
 /* 이미지 스타일 */
 .work-grid img {
     width: 100%;
+    height: auto;
     display: block;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {
@@ -278,7 +291,6 @@ nav ul li a:hover {
 }
 
 /* 뒤로가기 버튼 스타일 */
-
 .back-button {
     position: fixed;
     top: 100px;
@@ -330,8 +342,7 @@ nav ul li a:hover {
 
 /* 반응형: 모바일에서도 네비게이션 아래에서 시작 */
 @media screen and (max-width: 768px) {
-
-  body {
+    body {
         font-size: 15px;
         padding-top: 120px; /* 모바일에서 네비게이션이 두 줄이 될 때 대비 */
     }
