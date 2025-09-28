@@ -203,7 +203,7 @@ nav ul li a:hover {
 
 /* === 상세 페이지 스타일 === */
 .work-detail {
-    padding: 0px 32px 72px;
+    padding: 40px 32px 72px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -385,6 +385,7 @@ nav ul li a:hover {
         margin: 50px 0 0 10px;
     }
 }
+
 
 
 
