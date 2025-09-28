@@ -83,13 +83,35 @@ nav ul li a:hover {
 }
 
 /* === 메인 페이지 스타일 === */
+.landing {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px 20px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .intro {
     max-width: 600px;
     min-width: 200px;
-    margin: 40px 0 0 20px;
+    margin: 0;
     text-align: left;
     line-height: 1.4;
     word-break: keep-all;
+}
+
+.intro-visual {
+    flex: 0 0 auto;
+    width: clamp(240px, 33vw, 360px);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.1));
+}
+
+.intro-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* 강조 스타일 */
@@ -333,21 +355,34 @@ nav ul li a:hover {
     nav ul {
         gap: 12px;
     }
+    .landing {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 32px 16px 0;
+    }
+
     .intro {
+        max-width: 100%;
+        margin: 0;
         font-weight: 700;
         line-height: 1.4;
         font-size: 15px;
         word-break: keep-all;
     }
 
+    .intro-visual {
+        width: min(90vw, 320px);
+    }
+
     .eng {
         font-size: 15px;
         font-weight: 400;
         margin-top: 10px;
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
-    .intro, .cv {
+    .cv {
         max-width: 90%;
         margin: 50px 0 0 10px;
     }
