@@ -160,8 +160,8 @@ nav ul li a:hover {
 /* === Work 페이지 스타일 === */
 .work {
     padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* 네비게이션 높이 고려하여 마진 추가 */
@@ -386,3 +386,4 @@ nav ul li a:hover {
         margin: 50px 0 0 10px;
     }
 }
+
