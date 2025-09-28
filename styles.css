@@ -179,9 +179,8 @@ nav ul li a:hover {
 /* 이미지 스타일 */
 .work-grid img {
     width: 100%;
+    height: auto;
     display: block;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {
