@@ -1,0 +1,103 @@
+.intro-graph {
+    width: min(100%, 1100px);
+    max-width: 1100px;
+    margin: 0;
+    padding-top: 20px;
+    filter: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#index-work-graph {
+    display: block;
+    width: 100%;
+    min-width: 900px;
+    height: auto;
+    color: #000;
+    background: #fff;
+}
+
+.index-graph-guide {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.28);
+    stroke-width: 1;
+    stroke-dasharray: 1 7;
+    stroke-linecap: round;
+}
+
+.index-graph-link {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.1;
+    opacity: 0.52;
+    transition: opacity 160ms ease, stroke-width 160ms ease;
+}
+
+.index-graph-links.has-active .index-graph-link {
+    opacity: 0.06;
+}
+
+.index-graph-links.has-active .index-graph-link.active {
+    opacity: 1;
+    stroke-width: 2.2;
+}
+
+.index-graph-node {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1.2;
+}
+
+.index-graph-node.root,
+.index-graph-node.active {
+    fill: #000;
+}
+
+.index-graph-branch,
+.index-graph-label,
+.index-graph-center {
+    fill: #000;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.index-graph-branch {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 5px;
+    stroke-linejoin: round;
+}
+
+.index-graph-label {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.index-graph-label.active {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.index-graph-center {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+@media screen and (max-width: 768px) {
+    .intro-graph {
+        width: 100%;
+        max-width: none;
+        padding-top: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .index-graph-link {
+        transition: none;
+    }
+}
