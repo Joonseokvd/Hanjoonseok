@@ -3,6 +3,20 @@
   if (!host || typeof d3 === "undefined") return;
 
   const site = "https://hanjoonseok.com/";
+  const displayName = name => {
+    if (/[가-힣]/.test(name) || name.length <= 20) return name;
+
+    const words = name.trim().split(/\s+/);
+    let shortened = "";
+
+    for (const word of words) {
+      const candidate = shortened ? shortened + " " + word : word;
+      if (candidate.length > 20) break;
+      shortened = candidate;
+    }
+
+    return (shortened || name.slice(0, 20)).trim() + "...";
+  };
   const data = {
     name: "Typography",
     children: [
@@ -88,7 +102,7 @@
     .attr("x", d => point(d.x, d.y - 22)[0])
     .attr("y", d => point(d.x, d.y - 22)[1])
     .attr("text-anchor", "middle")
-    .text(d => d.data.name);
+    .text(d => displayName(d.data.name));
 
   const labelGroup = svg.append("g").attr("class", "index-graph-labels");
   const labels = labelGroup.selectAll("a")
@@ -107,7 +121,7 @@
       const base = "rotate(" + (d.x * 180 / Math.PI - 90) + "," + p[0] + "," + p[1] + ")";
       return d.x < Math.PI ? base : base + " rotate(180," + p[0] + "," + p[1] + ")";
     })
-    .text(d => d.data.name);
+    .text(d => displayName(d.data.name));
 
   const center = svg.append("text")
     .attr("class", "index-graph-center")
