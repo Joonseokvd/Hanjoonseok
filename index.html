@@ -6,19 +6,15 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <title>Hanjoonseok</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="icon.ico" type="image/x-icon">
 </head>
 <body>
-    <script src="script.js"></script>
-    
     <nav class="fixed-nav">
         <ul>
             <li><a href="index.html">Hanjoonseok</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="cv.html">CV</a></li>
-            <li><a href="https://www.instagram.com/han_joonseok/?hl=ko" target="_blank">SNS</a></li>
+            <li><a href="https://www.instagram.com/han_joonseok/?hl=ko" target="_blank" rel="noopener">SNS</a></li>
             <li><a href="mailto:joonseokvd@gmail.com">Contact</a></li>
         </ul>
     </nav>
@@ -26,22 +22,19 @@
     <main class="landing">
         <section class="intro">
             <h1>DEHE</h1>
-            <p>Denken. Entwerfen. Hinterfragen. Erforschen. <br> 
+            <p>Denken. Entwerfen. Hinterfragen. Erforschen. <br>
                 I am a multidisciplinary designer rooted in typography and extending across web, print, and beyond. I approach design as an act of reframing—examining phenomena from multiple perspectives to reveal alternative ways of seeing the world. My work ranges from simple forms to complex systems, always grounded in logic, structure, and clarity. Each project is guided by a pursuit of coherence, where research and reasoning shape outcomes that are at once rigorous and expressive.</p>
-    </section>
-        <figure class="intro-visual">
-            <img src="diagramimage.webp" alt="Abstract line graphic" />
+        </section>
+
+        <figure class="intro-visual intro-graph">
+            <svg id="index-work-graph" role="img" aria-labelledby="index-graph-title index-graph-desc">
+                <title id="index-graph-title">Typography work graph</title>
+                <desc id="index-graph-desc">Projects connected to four fields in a radial cluster.</desc>
+            </svg>
         </figure>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="index-graph.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
