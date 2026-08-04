@@ -126,7 +126,7 @@
   const center = svg.append("text")
     .attr("class", "index-graph-center")
     .attr("text-anchor", "middle")
-    .attr("dy", ".32em")
+    .attr("y", -16)
     .text("Typography");
 
   function reset() {
