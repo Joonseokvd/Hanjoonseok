@@ -102,7 +102,7 @@
     .attr("x", d => point(d.x, d.y - 22)[0])
     .attr("y", d => point(d.x, d.y - 22)[1])
     .attr("text-anchor", "middle")
-    .text(d => displayName(d.data.name));
+    .text(d => d.data.name);
 
   const labelGroup = svg.append("g").attr("class", "index-graph-labels");
   const labels = labelGroup.selectAll("a")

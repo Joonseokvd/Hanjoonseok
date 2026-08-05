@@ -93,6 +93,12 @@
         width: 100%;
         max-width: none;
         padding-top: 16px;
+        overflow-x: hidden;
+    }
+
+    #index-work-graph {
+        width: 100%;
+        min-width: 0;
     }
 }
 
