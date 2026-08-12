@@ -21,6 +21,9 @@
     name: "Typography",
     children: [
       { name: "BOOK & EDITORIAL", children: [
+        ["Didn’t You Bring Your {kki}? Go, Get It, Quick!", "work-detail/kki/33.html"],
+        ["퀴어 속의 퀴어 속의 퀴어", "work-detail/queer/32.html"],
+        ["툰호수 Thunersee", "work-detail/Thunersee/31.html"],
         ["Atlas der Metaphysischen Pflanzen", "work-detail/atlas/29.html"],
         ["Cor!", "work-detail/cor/28.html"],
         ["Ein Bericht einer kurzen Reise", "work-detail/ein/25.html"],
@@ -41,6 +44,7 @@
         ["개운", "work-detail/refresh/1.html"]
       ]},
       { name: "EXHIBITION & DIRECTION", children: [
+        ["영원한 광경", "work-detail/eternal/30.html"],
         ["빛의 양피지 위에서", "work-detail/shipskin/26.html"],
         ["Unboxing New Printer", "work-detail/unboxing/13.html"],
         ["ENCORE!", "work-detail/encore/12.html"],
