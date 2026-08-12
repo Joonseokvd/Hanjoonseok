@@ -302,13 +302,42 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 0; /* 기기별 화살표 글리프 대신 아래 CSS 아이콘 사용 */
+    line-height: 0;
     text-decoration: none;
     color: rgb(0, 85, 255);
     font-weight: 400;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
      z-index: 9999;
+}
+
+.back-button::before,
+.back-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    pointer-events: none;
+}
+
+/* 화살표 몸통 */
+.back-button::before {
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 999px;
+    transform: translate(-30%, -50%);
+}
+
+/* 화살표 머리 */
+.back-button::after {
+    width: 9px;
+    height: 9px;
+    border-left: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translate(-55%, -50%) rotate(45deg);
 }
 
 /* 호버 시 색상 변경 */
