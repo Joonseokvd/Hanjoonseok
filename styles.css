@@ -424,3 +424,14 @@ nav ul li a:hover {
 
 
 
+
+
+/* === Language switch === */
+.language-switch { position: fixed; top: 20px; right: 20px; z-index: 10001; display: flex; gap: 8px; align-items: center; }
+.language-switch button { appearance: none; padding: 0; border: 0; background: transparent; color: rgb(0, 85, 255); font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer; }
+.language-switch button:hover, .language-switch button.is-active { text-decoration: underline; text-underline-offset: 2px; }
+.work-description p { white-space: pre-line; }
+@media screen and (max-width: 768px) {
+  .language-switch { top: 16px; right: 16px; gap: 7px; }
+  .language-switch button { font-size: 15px; }
+}
