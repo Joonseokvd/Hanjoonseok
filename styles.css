@@ -266,3 +266,38 @@ nav ul li a:hover { text-decoration: underline; }
   .language-switch { top: 16px; right: 16px; gap: 7px; }
   .language-switch button { font-size: 15px; }
 }
+
+
+/* === Global black typography and language-aware paragraphs === */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, div, li, a, strong,
+nav ul li a,
+.language-switch button,
+.back-button {
+    color: #000;
+}
+.back-button::before {
+    background-color: #000;
+}
+.back-button::after {
+    border-left-color: #000;
+    border-bottom-color: #000;
+}
+.back-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+.back-button:hover::before {
+    background-color: #fff;
+}
+.back-button:hover::after {
+    border-left-color: #fff;
+    border-bottom-color: #fff;
+}
+.work-description p {
+    white-space: normal;
+}
+body[data-language="en"] .work-description p {
+    white-space: pre-line;
+}
