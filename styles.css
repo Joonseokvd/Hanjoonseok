@@ -474,3 +474,35 @@ body { margin-bottom: 0; }
         padding: 20px 10px 10px;
     }
 }
+
+
+/* === Compact first-image composition with adjacent text === */
+@media screen and (min-width: 769px) {
+    .work-header {
+        display: flex;
+        width: 100%;
+        gap: 18px;
+        align-items: flex-start;
+    }
+    .work-detail .main-image {
+        width: auto;
+        height: auto;
+        max-width: none;
+        object-fit: contain;
+        object-position: left top;
+    }
+    .work-description {
+        width: auto;
+        max-width: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .work-detail .main-image {
+        width: 100%;
+        height: auto;
+        max-height: 65svh;
+        min-height: 0;
+        object-fit: contain;
+        object-position: center top;
+    }
+}

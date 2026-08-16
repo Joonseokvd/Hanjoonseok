@@ -129,8 +129,47 @@
     document.body.appendChild(switcher);
   }
 
+
+  function fitDetailHero() {
+    const header = document.querySelector(".work-header");
+    const image = header?.querySelector(".main-image");
+    const description = header?.querySelector(".work-description");
+    if (!header || !image || !description) return;
+
+    if (window.innerWidth <= 768) {
+      image.style.removeProperty("width");
+      image.style.removeProperty("height");
+      image.style.removeProperty("flex");
+      description.style.removeProperty("width");
+      description.style.removeProperty("flex");
+      return;
+    }
+
+    const gap = 18;
+    const availableWidth = header.clientWidth;
+    const targetHeight = Math.max(320, window.innerHeight - 190);
+    const ratio = image.naturalWidth && image.naturalHeight
+      ? image.naturalWidth / image.naturalHeight
+      : 1;
+    const maximumImageWidth = (availableWidth - gap) * 2 / 3;
+    const imageWidth = Math.min(maximumImageWidth, targetHeight * ratio);
+    const imageHeight = imageWidth / ratio;
+
+    image.style.width = `${imageWidth}px`;
+    image.style.height = `${imageHeight}px`;
+    image.style.flex = "0 0 auto";
+    description.style.width = `${imageWidth / 2}px`;
+    description.style.flex = "0 0 auto";
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     mountSwitch();
     applyLanguage(localStorage.getItem("hanjoonseok-language") === "en" ? "en" : "ko");
+    const heroImage = document.querySelector(".work-header .main-image");
+    if (heroImage) {
+      if (heroImage.complete) fitDetailHero();
+      else heroImage.addEventListener("load", fitDetailHero, { once: true });
+      window.addEventListener("resize", fitDetailHero);
+    }
   });
 })();
