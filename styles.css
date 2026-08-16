@@ -301,3 +301,9 @@ nav ul li a,
 body[data-language="en"] .work-description p {
     white-space: pre-line;
 }
+
+
+/* CV begins directly with its first section. */
+.cv > h2:first-child {
+    margin-top: 0;
+}
