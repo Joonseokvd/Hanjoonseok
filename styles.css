@@ -307,3 +307,10 @@ body[data-language="en"] .work-description p {
 .cv > h2:first-child {
     margin-top: 0;
 }
+
+
+/* === Single typography weight across the entire website === */
+html body,
+html body * {
+    font-weight: 400 !important;
+}
