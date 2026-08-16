@@ -17,19 +17,17 @@ ul, ol, li {
 }
 
 /* === 전체 페이지 기본 스타일 === */
-
-
 body {
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: gray;
+    color: black;
     background-color: white;
     line-height: 1.4;
     word-break: break-word;
     text-align: left;
     margin-bottom: 20px;
-    padding-top: 80px; /* 고정된 네비게이션 공간 확보 */
+    padding-top: 80px;
 }
 
 h1 {
@@ -42,11 +40,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* 모든 텍스트의 줄 간격 1.4로 통일 */
+/* 모든 텍스트의 줄 간격과 색상 통일 */
 p, span, div, li, a, h1, h2, h3, h4, h5, h6, strong {
-      font-size: 1rem;
-      line-height: inherit;   /* ★ 상속만 */
-    color: gray;
+    font-size: 1rem;
+    line-height: inherit;
+    color: black;
 }
 
 /* === 네비게이션 스타일 === */
@@ -73,21 +71,19 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     font-weight: 400;
-    color: rgb(0, 85, 255);
+    color: black;
     line-height: 1.4 !important;
     display: block;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
+nav ul li a:hover { text-decoration: underline; }
 
 /* === 메인 페이지 스타일 === */
 .landing {
-    display: block;         
-    padding: 40px 20px 0;   
-    max-width: none;        
-    margin: 0;              
+    display: block;
+    padding: 40px 20px 0;
+    max-width: none;
+    margin: 0;
     text-align: left
 }
 
@@ -114,13 +110,8 @@ nav ul li a:hover {
     display: block;
 }
 
-/* 강조 스타일 */
-.highlight {
-    font-weight: 900;
-}
+.highlight { font-weight: 900; }
 
-
-/* 영어 텍스트 */
 .eng {
     margin-top: 40px;
     margin-left: 120px;
@@ -134,28 +125,10 @@ nav ul li a:hover {
     margin: 40px 0 0 20px;
     text-align: left;
 }
-
-/* CV 페이지에서 점 제거 */
-.cv ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-/* CV 페이지 여백 조정 */
-.cv h2 {
-    margin-top: 40px;
-    font-weight: 900;
-}
-
-/* CV 페이지 들여쓰기 */
-.cv .year {
-    margin-left: 20px;
-}
-
-.cv .details {
-    margin-left: 40px;
-    font-weight: 400;
-}
+.cv ul { list-style: none; padding-left: 0; }
+.cv h2 { margin-top: 40px; font-weight: 900; }
+.cv .year { margin-left: 20px; }
+.cv .details { margin-left: 40px; font-weight: 400; }
 
 /* === Work 페이지 스타일 === */
 .work {
@@ -163,44 +136,17 @@ nav ul li a:hover {
     width: 100%;
     box-sizing: border-box;
 }
-
-/* 네비게이션 높이 고려하여 마진 추가 */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
-    margin-top: 40px; /* 상단 네비게이션 여백 */
+    margin-top: 40px;
 }
-
-.work-grid a {
-    display: block;
-}
-
-/* 이미지 스타일 */
-.work-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-@media screen and (max-width: 1200px) {
-    .work-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .work-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .work-grid {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-}
-
+.work-grid a { display: block; }
+.work-grid img { width: 100%; height: auto; display: block; }
+@media screen and (max-width: 1200px) { .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media screen and (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media screen and (max-width: 600px) { .work-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); } }
 
 /* === 상세 페이지 스타일 === */
 .work-detail {
@@ -210,8 +156,6 @@ nav ul li a:hover {
     margin: 0 auto;
     text-align: left;
 }
-
-/* 작품 제목 */
 .work-title {
     font-weight: 900;
     font-size: 16px;
@@ -219,8 +163,6 @@ nav ul li a:hover {
     word-break: keep-all;
     margin-bottom: 40px;
 }
-
-/* 첫 번째 이미지와 설명 영역 */
 .work-header {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
@@ -228,66 +170,21 @@ nav ul li a:hover {
     align-items: start;
     margin-bottom: 40px;
 }
-
-.main-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.work-description {
-    width: 100%;
-    box-sizing: border-box;
-    word-break: keep-all;
-}
-
-/* 이미지 갤러리 */
-.work-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-/* 개별 이미지 크기 */
-.half-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+.main-image { width: 100%; height: auto; display: block; }
+.work-description { width: 100%; box-sizing: border-box; word-break: keep-all; }
+.work-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.half-image { width: 100%; height: auto; display: block; }
 
 @media screen and (max-width: 1024px) {
-    .work-detail {
-        padding: 150px 24px 60px;
-        max-width: 90vw;
-    }
-
-    .work-header {
-        gap: 20px;
-    }
+    .work-detail { padding: 150px 24px 60px; max-width: 90vw; }
+    .work-header { gap: 20px; }
 }
-
 @media screen and (max-width: 768px) {
-    .work-detail {
-        padding: 130px 16px 40px;
-    }
-
-    .work-title {
-        margin-bottom: 24px;
-    }
-
-    .work-header {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .work-description {
-        margin-top: 0;
-    }
-
-    .work-gallery {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
+    .work-detail { padding: 130px 16px 40px; }
+    .work-title { margin-bottom: 24px; }
+    .work-header { grid-template-columns: 1fr; gap: 20px; }
+    .work-description { margin-top: 0; }
+    .work-gallery { grid-template-columns: 1fr; gap: 12px; }
 }
 
 /* 뒤로가기 버튼 스타일 */
@@ -295,23 +192,22 @@ nav ul li a:hover {
     position: fixed;
     top: 100px;
     left: 17px;
-    width: 36px; /* 버튼 크기 */
-    height: 36px; /* 버튼 크기 */
-    background-color: white; /* 반투명 흰색 */
-    border-radius: 50%; /* 원형 버튼 */
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0; /* 기기별 화살표 글리프 대신 아래 CSS 아이콘 사용 */
+    font-size: 0;
     line-height: 0;
     text-decoration: none;
-    color: rgb(0, 85, 255);
+    color: black;
     font-weight: 400;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-     z-index: 9999;
+    z-index: 9999;
 }
-
 .back-button::before,
 .back-button::after {
     content: "";
@@ -321,8 +217,6 @@ nav ul li a:hover {
     display: block;
     pointer-events: none;
 }
-
-/* 화살표 몸통 */
 .back-button::before {
     width: 15px;
     height: 2px;
@@ -330,8 +224,6 @@ nav ul li a:hover {
     border-radius: 999px;
     transform: translate(-30%, -50%);
 }
-
-/* 화살표 머리 */
 .back-button::after {
     width: 9px;
     height: 9px;
@@ -339,96 +231,35 @@ nav ul li a:hover {
     border-bottom: 2px solid currentColor;
     transform: translate(-55%, -50%) rotate(45deg);
 }
-
-/* 호버 시 색상 변경 */
 .back-button:hover {
-    background-color: rgb(0, 85, 255);
+    background-color: black;
     color: white;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
 #draggable {
     width: 50vw;
     position: absolute;
-    bottom: 50px;  /* 초기 위치 설정 */
-    left: 50px; /* 초기 위치 설정 */
+    bottom: 50px;
+    left: 50px;
     cursor: grab;
 }
+#draggable:active { cursor: grabbing; }
 
-#draggable:active {
-    cursor: grabbing;
-}
-
-
-
-
-
-
-/* 반응형: 모바일에서도 네비게이션 아래에서 시작 */
 @media screen and (max-width: 768px) {
-    body {
-        font-size: 15px;
-        padding-top: 120px; /* 모바일에서 네비게이션이 두 줄이 될 때 대비 */
-    }
-
-    nav {
-        padding: 16px;
-    }
-
-    nav ul {
-        gap: 12px;
-    }
-    .landing {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        padding: 32px 16px 0;
-    }
-
-    .intro {
-        max-width: 100%;
-        margin: 0;
-        font-weight: 700;
-        line-height: 1.4;
-        font-size: 15px;
-        word-break: keep-all;
-    }
-
-    .intro-visual {
-        width: min(90vw, 320px);
-    }
-
-    .eng {
-        font-size: 15px;
-        font-weight: 400;
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-
-    .cv {
-        max-width: 90%;
-        margin: 50px 0 0 10px;
-    }
+    body { font-size: 15px; padding-top: 120px; }
+    nav { padding: 16px; }
+    nav ul { gap: 12px; }
+    .landing { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 16px 0; }
+    .intro { max-width: 100%; margin: 0; font-weight: 700; line-height: 1.4; font-size: 15px; word-break: keep-all; }
+    .intro-visual { width: min(90vw, 320px); }
+    .eng { font-size: 15px; font-weight: 400; margin-top: 10px; margin-left: 10px; }
+    .cv { max-width: 90%; margin: 50px 0 0 10px; }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* === Language switch === */
 .language-switch { position: fixed; top: 20px; right: 20px; z-index: 10001; display: flex; gap: 8px; align-items: center; }
-.language-switch button { appearance: none; padding: 0; border: 0; background: transparent; color: rgb(0, 85, 255); font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer; }
+.language-switch button { appearance: none; padding: 0; border: 0; background: transparent; color: black; font: inherit; font-size: 16px; line-height: 1.4; cursor: pointer; }
 .language-switch button:hover, .language-switch button.is-active { text-decoration: underline; text-underline-offset: 2px; }
 .work-description p { white-space: pre-line; }
 @media screen and (max-width: 768px) {
