@@ -696,3 +696,10 @@ nav { box-shadow: none; }
     }
     .work-column { gap: 10px; }
 }
+
+
+/* === Cyan hover color for underlined interface text === */
+nav ul li a:hover,
+.language-switch button:hover {
+    color: #00bfd8 !important;
+}

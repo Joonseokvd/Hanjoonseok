@@ -159,3 +159,9 @@
         letter-spacing: 0;
     }
 }
+
+
+/* === Cyan hover color for underlined graph labels === */
+.index-graph-label.active {
+    fill: #00bfd8;
+}
