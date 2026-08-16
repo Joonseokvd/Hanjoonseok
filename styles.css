@@ -458,6 +458,7 @@ body {
 
 
 /* === Site copyright footer === */
+body { margin-bottom: 0; }
 .site-footer {
     width: 100%;
     margin: 0;
