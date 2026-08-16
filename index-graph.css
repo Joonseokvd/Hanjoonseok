@@ -165,3 +165,26 @@
 .index-graph-label.active {
     fill: #00bfd8;
 }
+
+
+/* === Maximum viewport-fit landing graph; typography remains 11pt === */
+@media screen and (min-width: 769px) {
+    .landing {
+        grid-template-columns: minmax(280px, 0.32fr) minmax(0, 0.68fr);
+    }
+    .intro-graph {
+        width: min(68vw, calc(100svh - 98px));
+        max-width: none;
+    }
+}
+.index-graph-branch,
+.index-graph-label,
+.index-graph-center {
+    font-size: 11pt;
+}
+@media screen and (max-width: 768px) {
+    .intro-graph {
+        width: 100%;
+        max-width: none;
+    }
+}
