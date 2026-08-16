@@ -598,3 +598,28 @@ body { margin-bottom: 0; }
         line-height: 10px;
     }
 }
+
+
+/* === Compact detail hero with Eternal View text measure === */
+@media screen and (min-width: 769px) {
+    .work-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .work-detail .main-image {
+        flex: 0 1 auto;
+        width: auto;
+        height: auto;
+        max-width: calc(75% - 13.5px);
+        max-height: calc(100vh - 220px);
+        max-height: calc(100svh - 220px);
+        object-fit: contain;
+        object-position: left top;
+    }
+    .work-description {
+        flex: 0 0 calc((100% - 18px) / 4);
+        width: calc((100% - 18px) / 4);
+        max-width: calc((100% - 18px) / 4);
+    }
+}
