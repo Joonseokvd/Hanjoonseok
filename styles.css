@@ -251,7 +251,7 @@ nav ul li a:hover { text-decoration: underline; }
     nav { padding: 16px; }
     nav ul { gap: 12px; }
     .landing { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 16px 0; }
-    .intro { max-width: 100%; margin: 0; font-weight: 700; line-height: 1.4; font-size: 15px; word-break: keep-all; }
+    .intro { max-width: 100%; margin: 0; font-weight: 400; line-height: 1.4; font-size: 15px; word-break: keep-all; }
     .intro-visual { width: min(90vw, 320px); }
     .eng { font-size: 15px; font-weight: 400; margin-top: 10px; margin-left: 10px; }
     .cv { max-width: 90%; margin: 50px 0 0 10px; }
