@@ -145,7 +145,32 @@
     description.style.removeProperty("flex");
   }
 
+  function mountWorkMasonry() {
+    const grid = document.querySelector(".work-grid");
+    if (!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll(".work-card"));
+    cards.forEach((card, index) => {
+      if (!card.dataset.workOrder) card.dataset.workOrder = String(index);
+    });
+    cards.sort((a, b) => Number(a.dataset.workOrder) - Number(b.dataset.workOrder));
+
+    const columnCount = window.innerWidth > 1200 ? 4 : window.innerWidth > 900 ? 3 : window.innerWidth > 600 ? 2 : 1;
+    if (grid.dataset.columnCount === String(columnCount)) return;
+
+    const columns = Array.from({ length: columnCount }, () => {
+      const column = document.createElement("div");
+      column.className = "work-column";
+      return column;
+    });
+
+    cards.forEach((card, index) => columns[index % columnCount].appendChild(card));
+    grid.replaceChildren(...columns);
+    grid.dataset.columnCount = String(columnCount);
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
+    mountWorkMasonry();
     mountSwitch();
     applyLanguage(localStorage.getItem("hanjoonseok-language") === "en" ? "en" : "ko");
     const heroImage = document.querySelector(".work-header .main-image");
@@ -154,5 +179,6 @@
       else heroImage.addEventListener("load", fitDetailHero, { once: true });
       window.addEventListener("resize", fitDetailHero);
     }
+    window.addEventListener("resize", mountWorkMasonry);
   });
 })();
