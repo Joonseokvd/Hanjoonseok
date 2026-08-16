@@ -627,3 +627,12 @@ body { margin-bottom: 0; }
 
 /* === Flat navigation block === */
 nav { box-shadow: none; }
+
+
+/* === Full-width detail copy on mobile === */
+@media screen and (max-width: 768px) {
+    .work-description {
+        width: 100%;
+        max-width: 100%;
+    }
+}
