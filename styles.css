@@ -506,3 +506,32 @@ body { margin-bottom: 0; }
         object-position: center top;
     }
 }
+
+
+/* === First image matches one gallery column exactly === */
+@media screen and (min-width: 769px) {
+    .work-detail .main-image {
+        flex: 0 0 calc((100% - 18px) / 2);
+        width: calc((100% - 18px) / 2);
+        height: auto;
+        max-width: calc((100% - 18px) / 2);
+        object-fit: contain;
+    }
+    .work-description {
+        flex: 0 0 calc((100% - 18px) / 4);
+        width: calc((100% - 18px) / 4);
+        max-width: calc((100% - 18px) / 4);
+    }
+}
+@media screen and (max-width: 768px) {
+    .work-detail .main-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+    .work-description {
+        width: 50%;
+        max-width: 50%;
+    }
+}
