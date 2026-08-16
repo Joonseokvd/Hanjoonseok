@@ -107,3 +107,55 @@
         transition: none;
     }
 }
+
+
+/* === Compact right-aligned landing graph === */
+@media screen and (min-width: 769px) {
+    .landing {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+        column-gap: 18px;
+        align-items: start;
+    }
+    .intro {
+        grid-column: 1;
+        max-width: 100%;
+    }
+    .intro-graph {
+        grid-column: 2;
+        justify-self: end;
+        width: min(52vw, calc(100svh - 170px), 680px);
+        max-width: none;
+        margin: 0;
+        padding-top: 0;
+        overflow: visible;
+    }
+    #index-work-graph {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+}
+.index-graph-branch,
+.index-graph-label,
+.index-graph-center {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+@media screen and (max-width: 768px) {
+    .intro-graph {
+        width: min(100%, calc(100svh - 260px));
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: 0;
+        padding-top: 10px;
+    }
+    .index-graph-branch,
+    .index-graph-label,
+    .index-graph-center {
+        font-size: 11pt;
+        letter-spacing: 0;
+    }
+}
