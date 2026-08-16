@@ -1,15 +1,14 @@
+/* Landing-page work graph */
+
 .intro-graph {
     width: min(100%, 1100px);
-    max-width: 1100px;
     margin: 0;
     padding-top: 20px;
-    filter: none;
     overflow-x: auto;
     overflow-y: hidden;
 }
 
 #index-work-graph {
-    display: block;
     width: 100%;
     min-width: 900px;
     height: auto;
@@ -19,7 +18,7 @@
 
 .index-graph-guide {
     fill: none;
-    stroke: rgba(0, 0, 0, 0.28);
+    stroke: rgb(0 0 0 / 28%);
     stroke-width: 1;
     stroke-dasharray: 1 7;
     stroke-linecap: round;
@@ -38,8 +37,8 @@
 }
 
 .index-graph-links.has-active .index-graph-link.active {
-    opacity: 1;
     stroke-width: 2.2;
+    opacity: 1;
 }
 
 .index-graph-node {
@@ -57,13 +56,13 @@
 .index-graph-label,
 .index-graph-center {
     fill: #000;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard", sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    letter-spacing: 0;
 }
 
 .index-graph-branch {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
     paint-order: stroke;
     stroke: #fff;
     stroke-width: 5px;
@@ -71,33 +70,52 @@
 }
 
 .index-graph-label {
-    font-size: 14px;
-    font-weight: 400;
     cursor: pointer;
 }
 
 .index-graph-label.active {
-    font-weight: 700;
+    fill: #00bfd8;
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
-.index-graph-center {
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+@media (min-width: 769px) {
+    .landing {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.32fr) minmax(0, 0.68fr);
+        column-gap: 18px;
+        align-items: start;
+    }
+
+    .intro {
+        grid-column: 1;
+        max-width: 100%;
+    }
+
+    .intro-graph {
+        grid-column: 2;
+        justify-self: end;
+        width: min(68vw, calc(100svh - 98px));
+        max-width: none;
+        padding-top: 0;
+        overflow: visible;
+    }
+
+    #index-work-graph {
+        min-width: 0;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .intro-graph {
         width: 100%;
         max-width: none;
-        padding-top: 16px;
+        margin-left: auto;
+        padding-top: 10px;
         overflow-x: hidden;
     }
 
     #index-work-graph {
-        width: 100%;
         min-width: 0;
     }
 }
@@ -105,86 +123,5 @@
 @media (prefers-reduced-motion: reduce) {
     .index-graph-link {
         transition: none;
-    }
-}
-
-
-/* === Compact right-aligned landing graph === */
-@media screen and (min-width: 769px) {
-    .landing {
-        display: grid;
-        grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
-        column-gap: 18px;
-        align-items: start;
-    }
-    .intro {
-        grid-column: 1;
-        max-width: 100%;
-    }
-    .intro-graph {
-        grid-column: 2;
-        justify-self: end;
-        width: min(52vw, calc(100svh - 170px), 680px);
-        max-width: none;
-        margin: 0;
-        padding-top: 0;
-        overflow: visible;
-    }
-    #index-work-graph {
-        width: 100%;
-        min-width: 0;
-        height: auto;
-    }
-}
-.index-graph-branch,
-.index-graph-label,
-.index-graph-center {
-    font-family: 'Pretendard', sans-serif;
-    font-size: 11pt;
-    font-weight: 400;
-    letter-spacing: 0;
-}
-@media screen and (max-width: 768px) {
-    .intro-graph {
-        width: min(100%, calc(100svh - 260px));
-        max-width: 520px;
-        margin-left: auto;
-        margin-right: 0;
-        padding-top: 10px;
-    }
-    .index-graph-branch,
-    .index-graph-label,
-    .index-graph-center {
-        font-size: 11pt;
-        letter-spacing: 0;
-    }
-}
-
-
-/* === Cyan hover color for underlined graph labels === */
-.index-graph-label.active {
-    fill: #00bfd8;
-}
-
-
-/* === Maximum viewport-fit landing graph; typography remains 11pt === */
-@media screen and (min-width: 769px) {
-    .landing {
-        grid-template-columns: minmax(280px, 0.32fr) minmax(0, 0.68fr);
-    }
-    .intro-graph {
-        width: min(68vw, calc(100svh - 98px));
-        max-width: none;
-    }
-}
-.index-graph-branch,
-.index-graph-label,
-.index-graph-center {
-    font-size: 11pt;
-}
-@media screen and (max-width: 768px) {
-    .intro-graph {
-        width: 100%;
-        max-width: none;
     }
 }

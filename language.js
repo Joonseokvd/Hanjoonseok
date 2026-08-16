@@ -106,11 +106,11 @@
       const translation = details[detailKey];
       setText(document.querySelector(".work-title"), translation.title, lang);
       setText(document.querySelector(".work-description p"), translation.body, lang);
-    }    document.querySelectorAll(".work-caption").forEach(caption => {
+    }
+
+    document.querySelectorAll(".work-caption").forEach(caption => {
       caption.textContent = lang === "en" ? caption.dataset.en : caption.dataset.ko;
     });
-
-
 
     document.querySelectorAll(".language-switch button").forEach(button => {
       const active = button.dataset.lang === lang;
@@ -131,18 +131,6 @@
       if (button) applyLanguage(button.dataset.lang);
     });
     document.body.appendChild(switcher);
-  }
-
-
-  function fitDetailHero() {
-    const image = document.querySelector(".work-header .main-image");
-    const description = document.querySelector(".work-header .work-description");
-    if (!image || !description) return;
-    image.style.removeProperty("width");
-    image.style.removeProperty("height");
-    image.style.removeProperty("flex");
-    description.style.removeProperty("width");
-    description.style.removeProperty("flex");
   }
 
   function mountWorkMasonry() {
@@ -173,12 +161,6 @@
     mountWorkMasonry();
     mountSwitch();
     applyLanguage(localStorage.getItem("hanjoonseok-language") === "en" ? "en" : "ko");
-    const heroImage = document.querySelector(".work-header .main-image");
-    if (heroImage) {
-      if (heroImage.complete) fitDetailHero();
-      else heroImage.addEventListener("load", fitDetailHero, { once: true });
-      window.addEventListener("resize", fitDetailHero);
-    }
     window.addEventListener("resize", mountWorkMasonry);
   });
 })();
