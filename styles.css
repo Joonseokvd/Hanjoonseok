@@ -56,7 +56,7 @@ nav {
     padding: 20px;
     text-align: left;
     background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
     z-index: 1000;
 }
 
@@ -623,3 +623,7 @@ body { margin-bottom: 0; }
         max-width: calc((100% - 18px) / 4);
     }
 }
+
+
+/* === Flat navigation block === */
+nav { box-shadow: none; }
