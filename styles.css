@@ -437,3 +437,21 @@ body {
         margin-bottom: 10px;
     }
 }
+
+
+/* === Viewport-height first image on every work detail === */
+.work-detail .main-image {
+    width: 100%;
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
+    object-fit: contain;
+    object-position: left top;
+}
+@media screen and (max-width: 768px) {
+    .work-detail .main-image {
+        height: calc(100vh - 98px);
+        height: calc(100svh - 98px);
+        min-height: 300px;
+        object-position: center top;
+    }
+}
