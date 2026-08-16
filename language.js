@@ -106,7 +106,11 @@
       const translation = details[detailKey];
       setText(document.querySelector(".work-title"), translation.title, lang);
       setText(document.querySelector(".work-description p"), translation.body, lang);
-    }
+    }    document.querySelectorAll(".work-caption").forEach(caption => {
+      caption.textContent = lang === "en" ? caption.dataset.en : caption.dataset.ko;
+    });
+
+
 
     document.querySelectorAll(".language-switch button").forEach(button => {
       const active = button.dataset.lang === lang;
