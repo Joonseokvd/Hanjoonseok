@@ -455,3 +455,21 @@ body {
         object-position: center top;
     }
 }
+
+
+/* === Site copyright footer === */
+.site-footer {
+    width: 100%;
+    margin: 0;
+    padding: 36px 18px 18px;
+    color: #888 !important;
+    font-size: 9pt !important;
+    font-weight: 400 !important;
+    line-height: 1.2;
+    text-align: right;
+}
+@media screen and (max-width: 768px) {
+    .site-footer {
+        padding: 20px 10px 10px;
+    }
+}
