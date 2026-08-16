@@ -336,3 +336,104 @@ html body * {
 .back-button:hover::before {
     background-color: currentColor;
 }
+
+
+/* === Unified NeoPhoto-density content grid === */
+body {
+    padding-top: 62px;
+}
+.landing,
+.work,
+.cv,
+.work-detail {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 18px;
+    text-align: left;
+}
+.intro {
+    width: 100%;
+    max-width: 800px;
+    margin: 0;
+}
+.intro-visual {
+    margin-top: 18px;
+}
+.work-grid {
+    margin-top: 0;
+    gap: 18px;
+}
+.cv {
+    max-width: 640px;
+}
+.cv h2 {
+    margin-top: 36px;
+    margin-bottom: 9px;
+}
+.cv > h2:first-child {
+    margin-top: 0;
+}
+.cv .year {
+    margin-left: 0;
+}
+.cv .details {
+    margin-left: 36px;
+}
+.work-title {
+    margin-bottom: 18px;
+}
+.work-header {
+    gap: 18px;
+    margin-bottom: 18px;
+}
+.work-gallery {
+    gap: 18px;
+}
+.back-button {
+    display: none !important;
+}
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 88px;
+    }
+    .landing,
+    .work,
+    .cv,
+    .work-detail {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 10px;
+    }
+    .intro-visual {
+        margin-top: 10px;
+    }
+    .work-grid {
+        margin-top: 0;
+        gap: 10px;
+    }
+    .cv {
+        max-width: none;
+    }
+    .cv h2 {
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .cv > h2:first-child {
+        margin-top: 0;
+    }
+    .cv .details {
+        margin-left: 20px;
+    }
+    .work-title {
+        margin-bottom: 10px;
+    }
+    .work-header,
+    .work-gallery {
+        gap: 10px;
+    }
+    .work-header {
+        margin-bottom: 10px;
+    }
+}
