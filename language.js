@@ -68,6 +68,74 @@
     "/work-detail/waffle/15.html": { title: "Waffles Are Spies.", body: `By looking at an everyday object as though it were unfamiliar and assigning it an entirely different function, I produced an unexpected visual result. With their suspiciously low price, enigmatic square grid, and mixture of assorted ingredients, waffles carry all the signs of espionage.` }
   };
 
+  const taxonomy = {
+    format: {
+      label: "Format",
+      options: {
+        publication: "Publication",
+        typography: "Typography",
+        poster: "Poster",
+        identity: "Identity & Systems",
+        exhibition: "Exhibition & Spatial",
+        digital: "Web & Digital"
+      }
+    },
+    context: {
+      label: "Context",
+      options: {
+        "self-initiated": "Self-initiated",
+        commissioned: "Commissioned",
+        collaborative: "Collaborative"
+      }
+    },
+    year: {
+      label: "Year",
+      options: {
+        2026: "2026",
+        2025: "2025",
+        2024: "2024",
+        2023: "2023",
+        2022: "2022"
+      }
+    }
+  };
+
+  const workMetadata = {
+    "/work-detail/kki/33.html": { format: ["publication", "typography"], context: ["self-initiated", "collaborative"], year: ["2026"] },
+    "/work-detail/queer/32.html": { format: ["publication"], context: ["self-initiated", "collaborative"], year: ["2026"] },
+    "/work-detail/Thunersee/31.html": { format: ["publication"], context: ["commissioned", "collaborative"], year: ["2026"] },
+    "/work-detail/eternal/30.html": { format: ["exhibition", "identity", "digital"], context: ["self-initiated", "collaborative"], year: ["2025"] },
+    "/work-detail/atlas/29.html": { format: ["publication", "typography"], context: ["self-initiated"], year: ["2025"] },
+    "/work-detail/cor/28.html": { format: ["publication"], context: ["collaborative"], year: ["2025"] },
+    "/work-detail/dreistack/27.html": { format: ["identity", "digital"], context: ["self-initiated"], year: ["2025"] },
+    "/work-detail/shipskin/26.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2025"] },
+    "/work-detail/ein/25.html": { format: ["publication"], context: ["collaborative"], year: ["2025"] },
+    "/work-detail/soma/24.html": { format: ["publication", "identity"], context: ["commissioned"], year: ["2025"] },
+    "/work-detail/gou/23.html": { format: ["typography"], context: ["commissioned"], year: ["2024"] },
+    "/work-detail/shadow/22.html": { format: ["publication", "exhibition"], context: ["commissioned", "collaborative"], year: ["2024"] },
+    "/work-detail/fluoboy/21.html": { format: ["publication", "typography"], context: ["commissioned"], year: ["2024"] },
+    "/work-detail/roots/20.html": { format: ["publication"], context: ["commissioned"], year: ["2024"] },
+    "/work-detail/volume/19.html": { format: ["typography", "exhibition"], context: ["self-initiated"], year: ["2023"] },
+    "/work-detail/gokanecho/18.html": { format: ["publication"], context: ["commissioned"], year: ["2023"] },
+    "/work-detail/designwithai/17.html": { format: ["digital"], context: ["self-initiated"], year: ["2023"] },
+    "/work-detail/100/16.html": { format: ["typography", "exhibition"], context: ["self-initiated"], year: ["2023"] },
+    "/work-detail/waffle/15.html": { format: ["typography"], context: ["self-initiated"], year: ["2023"] },
+    "/work-detail/ripspace/14.html": { format: ["publication"], context: ["commissioned"], year: ["2022"] },
+    "/work-detail/unboxing/13.html": { format: ["exhibition", "poster"], context: ["self-initiated", "collaborative"], year: ["2022"] },
+    "/work-detail/encore/12.html": { format: ["exhibition", "poster"], context: ["collaborative"], year: ["2022"] },
+    "/work-detail/pasta/11.html": { format: ["typography"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/chris/10.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2022"] },
+    "/work-detail/neol/9.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2022"] },
+    "/work-detail/novice/8.html": { format: ["publication", "typography"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/joonseokthinks/7.html": { format: ["publication"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/iwear/6.html": { format: ["exhibition", "digital"], context: ["self-initiated", "collaborative"], year: ["2022"] },
+    "/work-detail/itchy/5.html": { format: ["poster"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/Grab it, Take it, and Feel it/4.html": { format: ["publication"], context: ["commissioned"], year: ["2022"] },
+    "/work-detail/reum/3.html": { format: ["typography"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/incheon/2.html": { format: ["poster", "identity"], context: ["self-initiated"], year: ["2022"] },
+    "/work-detail/refresh/1.html": { format: ["poster", "typography"], context: ["self-initiated"], year: ["2022"] }
+  };
+
   const path = decodeURIComponent(location.pathname);
   const detailKey = Object.keys(details).find(key => path.endsWith(key));
   const original = new WeakMap();
@@ -133,18 +201,145 @@
     document.body.appendChild(switcher);
   }
 
+  function metadataForHref(href) {
+    const pathname = decodeURIComponent(new URL(href, location.href).pathname);
+    const key = Object.keys(workMetadata).find(item => pathname.endsWith(item));
+    return key ? workMetadata[key] : null;
+  }
+
+  function selectedFiltersFromUrl() {
+    const params = new URLSearchParams(location.search);
+    return Object.fromEntries(Object.keys(taxonomy).map(group => {
+      const values = params.getAll(group).flatMap(value => value.split(","));
+      const valid = values.filter(value => taxonomy[group].options[value]);
+      return [group, new Set(valid)];
+    }));
+  }
+
+  function mountWorkFilter() {
+    const grid = document.querySelector(".work-grid");
+    const work = document.querySelector(".work");
+    if (!grid || !work || work.querySelector(".work-filter")) return;
+
+    const selected = selectedFiltersFromUrl();
+    const filter = document.createElement("div");
+    filter.className = "work-filter";
+    filter.innerHTML = `
+      <button class="work-filter-toggle" type="button" aria-expanded="false" aria-controls="work-filter-panel">Filter</button>
+      <span class="work-filter-count" aria-live="polite"></span>
+      <div class="work-filter-panel" id="work-filter-panel" hidden>
+        ${Object.entries(taxonomy).map(([group, definition]) => `
+          <div class="work-filter-group">
+            <span class="work-filter-label">${definition.label}</span>
+            <div class="work-filter-options">
+              ${Object.entries(definition.options).map(([value, label]) => `<button class="work-filter-button" type="button" data-filter-group="${group}" data-filter-value="${value}" aria-pressed="false">${label}</button>`).join("")}
+            </div>
+          </div>`).join("")}
+        <button class="work-filter-clear" type="button">Clear</button>
+      </div>`;
+    work.insertBefore(filter, grid);
+
+    const toggle = filter.querySelector(".work-filter-toggle");
+    const panel = filter.querySelector(".work-filter-panel");
+    const count = filter.querySelector(".work-filter-count");
+    const cards = Array.from(grid.querySelectorAll(".work-card"));
+
+    function syncUrl() {
+      const params = new URLSearchParams();
+      Object.entries(selected).forEach(([group, values]) => {
+        values.forEach(value => params.append(group, value));
+      });
+      const query = params.toString();
+      history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}${location.hash}`);
+    }
+
+    function applyFilters() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const metadata = metadataForHref(card.getAttribute("href"));
+        const visible = metadata && Object.entries(selected).every(([group, values]) => {
+          return values.size === 0 || Array.from(values).some(value => metadata[group].includes(value));
+        });
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      filter.querySelectorAll(".work-filter-button").forEach(button => {
+        const active = selected[button.dataset.filterGroup].has(button.dataset.filterValue);
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      count.textContent = String(visibleCount);
+      grid.dataset.columnCount = "";
+      mountWorkMasonry();
+    }
+
+    filter.addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button === toggle) {
+        const open = panel.hidden;
+        panel.hidden = !open;
+        toggle.setAttribute("aria-expanded", String(open));
+        return;
+      }
+      if (button.classList.contains("work-filter-clear")) {
+        Object.values(selected).forEach(values => values.clear());
+      } else if (button.classList.contains("work-filter-button")) {
+        const values = selected[button.dataset.filterGroup];
+        const value = button.dataset.filterValue;
+        values.has(value) ? values.delete(value) : values.add(value);
+      } else {
+        return;
+      }
+      syncUrl();
+      applyFilters();
+    });
+
+    const hasInitialSelection = Object.values(selected).some(values => values.size);
+    if (hasInitialSelection) {
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+    }
+    applyFilters();
+  }
+
+  function mountDetailTags() {
+    const title = document.querySelector(".work-title");
+    if (!title || document.querySelector(".work-tags")) return;
+    const metadata = metadataForHref(location.href);
+    if (!metadata) return;
+
+    const tags = document.createElement("div");
+    tags.className = "work-tags";
+    tags.setAttribute("aria-label", "Project categories");
+    Object.entries(metadata).forEach(([group, values]) => {
+      values.forEach(value => {
+        const link = document.createElement("a");
+        link.href = `../../work.html?${group}=${encodeURIComponent(value)}`;
+        link.textContent = taxonomy[group].options[value];
+        tags.appendChild(link);
+      });
+    });
+    title.after(tags);
+  }
+
   function mountWorkMasonry() {
     const grid = document.querySelector(".work-grid");
     if (!grid) return;
 
-    const cards = Array.from(grid.querySelectorAll(".work-card"));
+    if (!grid._workCards) grid._workCards = Array.from(grid.querySelectorAll(".work-card"));
+    const cards = grid._workCards;
     cards.forEach((card, index) => {
       if (!card.dataset.workOrder) card.dataset.workOrder = String(index);
     });
     cards.sort((a, b) => Number(a.dataset.workOrder) - Number(b.dataset.workOrder));
 
+    const visibleCards = cards.filter(card => !card.hidden);
+
     const columnCount = window.innerWidth > 1200 ? 4 : window.innerWidth > 900 ? 3 : window.innerWidth > 600 ? 2 : 1;
-    if (grid.dataset.columnCount === String(columnCount)) return;
+    const layoutKey = `${columnCount}:${visibleCards.map(card => card.dataset.workOrder).join(",")}`;
+    if (grid.dataset.layoutKey === layoutKey) return;
 
     const columns = Array.from({ length: columnCount }, () => {
       const column = document.createElement("div");
@@ -152,13 +347,16 @@
       return column;
     });
 
-    cards.forEach((card, index) => columns[index % columnCount].appendChild(card));
+    visibleCards.forEach((card, index) => columns[index % columnCount].appendChild(card));
     grid.replaceChildren(...columns);
     grid.dataset.columnCount = String(columnCount);
+    grid.dataset.layoutKey = layoutKey;
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    mountWorkFilter();
     mountWorkMasonry();
+    mountDetailTags();
     mountSwitch();
     applyLanguage(localStorage.getItem("hanjoonseok-language") === "en" ? "en" : "ko");
     window.addEventListener("resize", mountWorkMasonry);

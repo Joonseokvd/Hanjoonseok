@@ -159,6 +159,73 @@ nav a:focus-visible {
 }
 
 /* Work index */
+.work-filter {
+    margin-bottom: 18px;
+    font-size: 11pt;
+    line-height: 1.4;
+}
+
+.work-filter-toggle,
+.work-filter-button,
+.work-filter-clear {
+    appearance: none;
+    border: 0;
+    padding: 0;
+    color: #000;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.work-filter-toggle:hover,
+.work-filter-toggle:focus-visible,
+.work-filter-button:hover,
+.work-filter-button:focus-visible,
+.work-filter-clear:hover,
+.work-filter-clear:focus-visible,
+.work-filter-button.is-active {
+    color: #00bfd8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.work-filter-panel {
+    display: grid;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.work-filter-panel[hidden] {
+    display: none;
+}
+
+.work-filter-group {
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 12px;
+}
+
+.work-filter-label {
+    color: #888;
+}
+
+.work-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 14px;
+}
+
+.work-filter-clear {
+    justify-self: start;
+    margin-left: 86px;
+    color: #888;
+}
+
+.work-filter-count {
+    margin-left: 8px;
+    color: #888;
+}
+
 .work-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -208,6 +275,27 @@ nav a:focus-visible {
 .work-card:hover .work-caption,
 .work-card:focus-visible .work-caption {
     opacity: 1;
+}
+
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 10px;
+    margin: -10px 0 18px;
+    font-size: 10pt;
+    line-height: 1.4;
+}
+
+.work-tags a {
+    color: #888;
+    text-decoration: none;
+}
+
+.work-tags a:hover,
+.work-tags a:focus-visible {
+    color: #00bfd8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* Work detail */
@@ -321,6 +409,28 @@ body[data-language="en"] .work-description p {
 
     .work-title {
         margin-bottom: 10px;
+    }
+
+    .work-filter {
+        margin-bottom: 10px;
+    }
+
+    .work-filter-group {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .work-filter-options {
+        gap: 0 10px;
+    }
+
+    .work-filter-clear {
+        margin-left: 66px;
+    }
+
+    .work-tags {
+        gap: 0 8px;
+        margin: -5px 0 10px;
     }
 
     .work-header {
