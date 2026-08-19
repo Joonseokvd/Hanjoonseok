@@ -24,7 +24,7 @@ body {
     padding-top: 62px;
     color: #000;
     background: #fff;
-    font-family: "Inclusive Sans", "Pretendard", sans-serif;
+    font-family: "Pretendard", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
@@ -35,6 +35,21 @@ body {
 body *,
 button {
     font-weight: 400;
+}
+
+.ml-en,
+.ml-num {
+    font-family: "Inclusive Sans", sans-serif;
+    font-size: 1em;
+    font-weight: inherit;
+    letter-spacing: 0;
+}
+
+.ml-ko {
+    font-family: "Pretendard", sans-serif;
+    font-size: 1em;
+    font-weight: inherit;
+    line-height: 1.55;
 }
 
 h1,

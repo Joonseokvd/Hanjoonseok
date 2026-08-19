@@ -150,6 +150,35 @@
     element.textContent = lang === "en" ? value : original.get(element);
   }
 
+  function applyMultilingualTypography(root = document.body) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!/[A-Za-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest("script, style, svg, textarea, .ml-en, .ml-ko, .ml-num")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      const pattern = /([A-Za-z]+(?:[’'][A-Za-z]+)*|[0-9]+|[ㄱ-ㅎㅏ-ㅣ가-힣]+)/g;
+      let cursor = 0;
+      let match;
+      while ((match = pattern.exec(node.nodeValue))) {
+        if (match.index > cursor) fragment.append(node.nodeValue.slice(cursor, match.index));
+        const span = document.createElement("span");
+        span.className = /^[0-9]+$/.test(match[0]) ? "ml-num" : /^[A-Za-z]/.test(match[0]) ? "ml-en" : "ml-ko";
+        span.textContent = match[0];
+        fragment.append(span);
+        cursor = pattern.lastIndex;
+      }
+      if (cursor < node.nodeValue.length) fragment.append(node.nodeValue.slice(cursor));
+      node.replaceWith(fragment);
+    });
+  }
+
   function applyLanguage(lang) {
     document.documentElement.lang = lang;
     document.body.dataset.language = lang;
@@ -186,6 +215,7 @@
       button.setAttribute("aria-pressed", String(active));
     });
     localStorage.setItem("hanjoonseok-language", lang);
+    applyMultilingualTypography();
   }
 
   function mountSwitch() {
