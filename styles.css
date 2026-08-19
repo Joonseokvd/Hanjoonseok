@@ -111,7 +111,7 @@ nav a:focus-visible {
 }
 
 /* Shared page frame */
-.landing,
+.about,
 .work,
 .cv,
 .work-detail {
@@ -129,8 +129,8 @@ nav a:focus-visible {
     text-align: right;
 }
 
-/* Landing */
-.landing {
+/* About */
+.about {
     display: block;
 }
 
@@ -382,7 +382,7 @@ body[data-language="en"] .work-description p {
         gap: 7px;
     }
 
-    .landing,
+    .about,
     .work,
     .cv,
     .work-detail {

@@ -1,5 +1,5 @@
 (() => {
-  const landing = {
+  const about = {
     ko: `타이포그래피를 기반으로 웹, 인쇄물과 그 너머를 아우르는 다학제적 디자이너입니다. 디자인을 하나의 대상을 여러 관점에서 살펴보고, 세계를 바라보는 또 다른 방식을 드러내는 재구성의 행위로 접근합니다. 단순한 형태부터 복잡한 시스템까지 논리와 구조, 명료함을 바탕으로 작업합니다. 리서치와 사고를 통해 엄밀하면서도 표현력 있는 결과를 만들고, 프로젝트 전체가 일관된 질서를 갖도록 설계합니다.`,
     en: `I am a multidisciplinary designer rooted in typography and working across web, print, and beyond. I approach design as an act of reframing: examining a subject from multiple perspectives to reveal alternative ways of seeing the world. My practice ranges from simple forms to complex systems, always grounded in logic, structure, and clarity. Each project pursues coherence, with research and reasoning shaping outcomes that are both rigorous and expressive.`
   };
@@ -154,11 +154,11 @@
     document.documentElement.lang = lang;
     document.body.dataset.language = lang;
 
-    if (path.endsWith("/index.html") || path === "/" || /\/Hanjoonseok\/?$/.test(path)) {
+    if (path.endsWith("/about.html")) {
       const intro = document.querySelector(".intro p");
       if (intro) {
         remember(intro);
-        intro.textContent = lang === "en" ? landing.en : landing.ko;
+        intro.textContent = lang === "en" ? about.en : about.ko;
       }
     }
 

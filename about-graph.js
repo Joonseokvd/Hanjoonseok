@@ -1,5 +1,5 @@
 (() => {
-  const host = document.getElementById("index-work-graph");
+  const host = document.getElementById("about-work-graph");
   if (!host || typeof d3 === "undefined") return;
 
   const site = "https://hanjoonseok.com/";

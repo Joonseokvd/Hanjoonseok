@@ -1,4 +1,4 @@
-/* Landing-page work graph */
+/* About-page work graph */
 
 .intro-graph {
     width: min(100%, 1100px);
@@ -8,7 +8,7 @@
     overflow-y: hidden;
 }
 
-#index-work-graph {
+#about-work-graph {
     width: 100%;
     min-width: 900px;
     height: auto;
@@ -80,7 +80,7 @@
 }
 
 @media (min-width: 769px) {
-    .landing {
+    .about {
         display: grid;
         grid-template-columns: minmax(280px, 0.32fr) minmax(0, 0.68fr);
         column-gap: 18px;
@@ -101,7 +101,7 @@
         overflow: visible;
     }
 
-    #index-work-graph {
+    #about-work-graph {
         min-width: 0;
     }
 }
@@ -115,7 +115,7 @@
         overflow-x: hidden;
     }
 
-    #index-work-graph {
+    #about-work-graph {
         min-width: 0;
     }
 }
