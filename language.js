@@ -80,12 +80,12 @@
         digital: "Web & Digital"
       }
     },
-    context: {
-      label: "Context",
+    approach: {
+      label: "Approach",
       options: {
-        "self-initiated": "Self-initiated",
-        commissioned: "Commissioned",
-        collaborative: "Collaborative"
+        logic: "Logic-based",
+        image: "Image experiment",
+        fun: "Just for fun"
       }
     },
     year: {
@@ -101,39 +101,39 @@
   };
 
   const workMetadata = {
-    "/work-detail/kki/33.html": { format: ["publication", "typography"], context: ["self-initiated", "collaborative"], year: ["2026"] },
-    "/work-detail/queer/32.html": { format: ["publication"], context: ["self-initiated", "collaborative"], year: ["2026"] },
-    "/work-detail/Thunersee/31.html": { format: ["publication"], context: ["commissioned", "collaborative"], year: ["2026"] },
-    "/work-detail/eternal/30.html": { format: ["exhibition", "identity", "digital"], context: ["self-initiated", "collaborative"], year: ["2025"] },
-    "/work-detail/atlas/29.html": { format: ["publication", "typography"], context: ["self-initiated"], year: ["2025"] },
-    "/work-detail/cor/28.html": { format: ["publication"], context: ["collaborative"], year: ["2025"] },
-    "/work-detail/dreistack/27.html": { format: ["identity", "digital"], context: ["self-initiated"], year: ["2025"] },
-    "/work-detail/shipskin/26.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2025"] },
-    "/work-detail/ein/25.html": { format: ["publication"], context: ["collaborative"], year: ["2025"] },
-    "/work-detail/soma/24.html": { format: ["publication", "identity"], context: ["commissioned"], year: ["2025"] },
-    "/work-detail/gou/23.html": { format: ["typography"], context: ["commissioned"], year: ["2024"] },
-    "/work-detail/shadow/22.html": { format: ["publication", "exhibition"], context: ["commissioned", "collaborative"], year: ["2024"] },
-    "/work-detail/fluoboy/21.html": { format: ["publication", "typography"], context: ["commissioned"], year: ["2024"] },
-    "/work-detail/roots/20.html": { format: ["publication"], context: ["commissioned"], year: ["2024"] },
-    "/work-detail/volume/19.html": { format: ["typography", "exhibition"], context: ["self-initiated"], year: ["2023"] },
-    "/work-detail/gokanecho/18.html": { format: ["publication"], context: ["commissioned"], year: ["2023"] },
-    "/work-detail/designwithai/17.html": { format: ["digital"], context: ["self-initiated"], year: ["2023"] },
-    "/work-detail/100/16.html": { format: ["typography", "exhibition"], context: ["self-initiated"], year: ["2023"] },
-    "/work-detail/waffle/15.html": { format: ["typography"], context: ["self-initiated"], year: ["2023"] },
-    "/work-detail/ripspace/14.html": { format: ["publication"], context: ["commissioned"], year: ["2022"] },
-    "/work-detail/unboxing/13.html": { format: ["exhibition", "poster"], context: ["self-initiated", "collaborative"], year: ["2022"] },
-    "/work-detail/encore/12.html": { format: ["exhibition", "poster"], context: ["collaborative"], year: ["2022"] },
-    "/work-detail/pasta/11.html": { format: ["typography"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/chris/10.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2022"] },
-    "/work-detail/neol/9.html": { format: ["poster", "typography"], context: ["commissioned"], year: ["2022"] },
-    "/work-detail/novice/8.html": { format: ["publication", "typography"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/joonseokthinks/7.html": { format: ["publication"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/iwear/6.html": { format: ["exhibition", "digital"], context: ["self-initiated", "collaborative"], year: ["2022"] },
-    "/work-detail/itchy/5.html": { format: ["poster"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/Grab it, Take it, and Feel it/4.html": { format: ["publication"], context: ["commissioned"], year: ["2022"] },
-    "/work-detail/reum/3.html": { format: ["typography"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/incheon/2.html": { format: ["poster", "identity"], context: ["self-initiated"], year: ["2022"] },
-    "/work-detail/refresh/1.html": { format: ["poster", "typography"], context: ["self-initiated"], year: ["2022"] }
+    "/work-detail/kki/33.html": { format: ["publication", "typography"], approach: ["logic"], year: ["2026"] },
+    "/work-detail/queer/32.html": { format: ["publication"], approach: ["logic"], year: ["2026"] },
+    "/work-detail/Thunersee/31.html": { format: ["publication"], approach: ["logic"], year: ["2026"] },
+    "/work-detail/eternal/30.html": { format: ["exhibition", "identity", "digital"], approach: ["logic"], year: ["2025"] },
+    "/work-detail/atlas/29.html": { format: ["publication", "typography"], approach: ["fun"], year: ["2025"] },
+    "/work-detail/cor/28.html": { format: ["publication"], approach: ["logic"], year: ["2025"] },
+    "/work-detail/dreistack/27.html": { format: ["identity", "digital"], approach: ["logic"], year: ["2025"] },
+    "/work-detail/shipskin/26.html": { format: ["poster", "typography"], approach: ["image"], year: ["2025"] },
+    "/work-detail/ein/25.html": { format: ["publication"], approach: ["image"], year: ["2025"] },
+    "/work-detail/soma/24.html": { format: ["publication", "identity"], approach: ["image"], year: ["2025"] },
+    "/work-detail/gou/23.html": { format: ["typography"], approach: ["image"], year: ["2024"] },
+    "/work-detail/shadow/22.html": { format: ["publication", "exhibition"], approach: ["logic"], year: ["2024"] },
+    "/work-detail/fluoboy/21.html": { format: ["publication", "typography"], approach: ["image"], year: ["2024"] },
+    "/work-detail/roots/20.html": { format: ["publication"], approach: ["image"], year: ["2024"] },
+    "/work-detail/volume/19.html": { format: ["typography", "exhibition"], approach: ["logic"], year: ["2023"] },
+    "/work-detail/gokanecho/18.html": { format: ["publication"], approach: ["logic"], year: ["2023"] },
+    "/work-detail/designwithai/17.html": { format: ["digital"], approach: ["logic"], year: ["2023"] },
+    "/work-detail/100/16.html": { format: ["typography", "exhibition"], approach: ["logic"], year: ["2023"] },
+    "/work-detail/waffle/15.html": { format: ["typography"], approach: ["fun"], year: ["2023"] },
+    "/work-detail/ripspace/14.html": { format: ["publication"], approach: ["image"], year: ["2022"] },
+    "/work-detail/unboxing/13.html": { format: ["exhibition", "poster"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/encore/12.html": { format: ["exhibition", "poster"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/pasta/11.html": { format: ["typography"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/chris/10.html": { format: ["poster", "typography"], approach: ["image"], year: ["2022"] },
+    "/work-detail/neol/9.html": { format: ["poster", "typography"], approach: ["image"], year: ["2022"] },
+    "/work-detail/novice/8.html": { format: ["publication", "typography"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/joonseokthinks/7.html": { format: ["publication"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/iwear/6.html": { format: ["exhibition", "digital"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/itchy/5.html": { format: ["poster"], approach: ["logic"], year: ["2022"] },
+    "/work-detail/Grab it, Take it, and Feel it/4.html": { format: ["publication"], approach: ["image"], year: ["2022"] },
+    "/work-detail/reum/3.html": { format: ["typography"], approach: ["fun"], year: ["2022"] },
+    "/work-detail/incheon/2.html": { format: ["poster", "identity"], approach: ["image"], year: ["2022"] },
+    "/work-detail/refresh/1.html": { format: ["poster", "typography"], approach: ["fun"], year: ["2022"] }
   };
 
   const path = decodeURIComponent(location.pathname);
