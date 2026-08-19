@@ -56,9 +56,9 @@
 .index-graph-label,
 .index-graph-center {
     fill: #000;
-    font-family: "Pretendard", sans-serif;
-    font-size: 11pt;
-    font-weight: 400;
+    font-family: "Iosevka Charon", "Orbit", sans-serif;
+    font-size: inherit;
+    font-weight: inherit;
     letter-spacing: 0;
 }
 
