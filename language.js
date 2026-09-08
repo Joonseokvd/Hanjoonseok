@@ -70,32 +70,32 @@
 
   const taxonomy = {
     format: {
-      label: "Format",
+      label: { en: "Format", ko: "모습" },
       options: {
-        publication: "Publication",
-        typography: "Typography",
-        poster: "Poster",
-        identity: "Identity & Systems",
-        exhibition: "Exhibition & Spatial",
-        digital: "Web & Digital"
+        publication: { en: "Publication", ko: "출판물" },
+        typography: { en: "Typography", ko: "타이포그래피" },
+        poster: { en: "Poster", ko: "포스터" },
+        identity: { en: "Identity & Systems", ko: "아이덴티티 시스템" },
+        exhibition: { en: "Exhibition & Spatial", ko: "전시 공간" },
+        digital: { en: "Web & Digital", ko: "웹 디지털" }
       }
     },
     approach: {
-      label: "Approach",
+      label: { en: "Approach", ko: "관점" },
       options: {
-        logic: "Logic-based",
-        image: "Image experiment",
-        fun: "Just for fun"
+        logic: { en: "Logic-based", ko: "논리 기반" },
+        image: { en: "Image experiment", ko: "시각 실험" },
+        fun: { en: "Just for fun", ko: "그냥 재미" }
       }
     },
     year: {
-      label: "Year",
+      label: { en: "Year", ko: "년도" },
       options: {
-        2026: "2026",
-        2025: "2025",
-        2024: "2024",
-        2023: "2023",
-        2022: "2022"
+        2026: { en: "2026", ko: "2026" },
+        2025: { en: "2025", ko: "2025" },
+        2024: { en: "2024", ko: "2024" },
+        2023: { en: "2023", ko: "2023" },
+        2022: { en: "2022", ko: "2022" }
       }
     }
   };
@@ -148,6 +148,10 @@
     if (!element) return;
     remember(element);
     element.textContent = lang === "en" ? value : original.get(element);
+  }
+
+  function taxonomyText(value, lang) {
+    return typeof value === "string" ? value : value[lang];
   }
 
   function applyMultilingualTypography(root = document.body) {
@@ -207,6 +211,20 @@
 
     document.querySelectorAll(".work-caption").forEach(caption => {
       caption.textContent = lang === "en" ? caption.dataset.en : caption.dataset.ko;
+    });
+
+    const filterToggle = document.querySelector(".work-filter-toggle");
+    if (filterToggle) filterToggle.textContent = lang === "en" ? "Filter" : "꼭지";
+    document.querySelectorAll(".work-filter-label[data-filter-group]").forEach(label => {
+      label.textContent = taxonomyText(taxonomy[label.dataset.filterGroup].label, lang);
+    });
+    document.querySelectorAll(".work-filter-button[data-filter-group][data-filter-value]").forEach(button => {
+      button.textContent = taxonomyText(taxonomy[button.dataset.filterGroup].options[button.dataset.filterValue], lang);
+    });
+    const clear = document.querySelector(".work-filter-clear");
+    if (clear) clear.textContent = lang === "en" ? "Clear" : "지우기";
+    document.querySelectorAll(".work-tags a[data-filter-group][data-filter-value]").forEach(link => {
+      link.textContent = taxonomyText(taxonomy[link.dataset.filterGroup].options[link.dataset.filterValue], lang);
     });
 
     document.querySelectorAll(".language-switch button").forEach(button => {
@@ -300,9 +318,9 @@
       <div class="work-filter-panel" id="work-filter-panel" hidden>
         ${Object.entries(taxonomy).map(([group, definition]) => `
           <div class="work-filter-group">
-            <span class="work-filter-label">${definition.label}</span>
+            <span class="work-filter-label" data-filter-group="${group}">${taxonomyText(definition.label, "en")}</span>
             <div class="work-filter-options">
-              ${Object.entries(definition.options).map(([value, label]) => `<button class="work-filter-button" type="button" data-filter-group="${group}" data-filter-value="${value}" aria-pressed="false">${label}</button>`).join("")}
+              ${Object.entries(definition.options).map(([value, label]) => `<button class="work-filter-button" type="button" data-filter-group="${group}" data-filter-value="${value}" aria-pressed="false">${taxonomyText(label, "en")}</button>`).join("")}
             </div>
           </div>`).join("")}
         <button class="work-filter-clear" type="button">Clear</button>
@@ -387,7 +405,9 @@
       values.forEach(value => {
         const link = document.createElement("a");
         link.href = `../../work.html?${group}=${encodeURIComponent(value)}`;
-        link.textContent = taxonomy[group].options[value];
+        link.dataset.filterGroup = group;
+        link.dataset.filterValue = value;
+        link.textContent = taxonomyText(taxonomy[group].options[value], "en");
         tags.appendChild(link);
       });
     });
