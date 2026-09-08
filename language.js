@@ -75,9 +75,9 @@
         publication: { en: "Publication", ko: "출판물" },
         typography: { en: "Typography", ko: "타이포그래피" },
         poster: { en: "Poster", ko: "포스터" },
-        identity: { en: "Identity & Systems", ko: "아이덴티티 시스템" },
-        exhibition: { en: "Exhibition & Spatial", ko: "전시 공간" },
-        digital: { en: "Web & Digital", ko: "웹 디지털" }
+        identity: { en: "Identity & Systems", ko: "아이덴티티와 시스템" },
+        exhibition: { en: "Exhibition & Spatial", ko: "전시와 공간" },
+        digital: { en: "Web & Digital", ko: "웹과 디지털" }
       }
     },
     approach: {
