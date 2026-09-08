@@ -218,6 +218,46 @@
     applyMultilingualTypography();
   }
 
+  function setWorkCaptionContrast() {
+    document.querySelectorAll(".work-card").forEach(card => {
+      const image = card.querySelector("img");
+      if (!image || card.dataset.captionContrastReady === "true") return;
+
+      const analyse = () => {
+        try {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d", { willReadFrequently: true });
+          if (!context || !image.naturalWidth || !image.naturalHeight) return;
+
+          const sampleWidth = 32;
+          const sampleHeight = 12;
+          const sourceY = Math.floor(image.naturalHeight * 0.7);
+          const sourceHeight = image.naturalHeight - sourceY;
+          canvas.width = sampleWidth;
+          canvas.height = sampleHeight;
+          context.fillStyle = "#fff";
+          context.fillRect(0, 0, sampleWidth, sampleHeight);
+          context.drawImage(image, 0, sourceY, image.naturalWidth, sourceHeight, 0, 0, sampleWidth, sampleHeight);
+
+          const pixels = context.getImageData(0, 0, sampleWidth, sampleHeight).data;
+          let luminance = 0;
+          for (let index = 0; index < pixels.length; index += 4) {
+            luminance += (0.2126 * pixels[index] + 0.7152 * pixels[index + 1] + 0.0722 * pixels[index + 2]) / 255;
+          }
+          const isLight = luminance / (pixels.length / 4) > 0.55;
+          card.classList.toggle("is-light-image", isLight);
+          card.classList.toggle("is-dark-image", !isLight);
+          card.dataset.captionContrastReady = "true";
+        } catch (error) {
+          card.classList.add("is-dark-image");
+        }
+      };
+
+      if (image.complete) analyse();
+      else image.addEventListener("load", analyse, { once: true });
+    });
+  }
+
   function mountSwitch() {
     if (document.querySelector(".language-switch")) return;
     const switcher = document.createElement("div");
@@ -386,6 +426,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     mountWorkFilter();
     mountWorkMasonry();
+    setWorkCaptionContrast();
     mountDetailTags();
     mountSwitch();
     applyLanguage(localStorage.getItem("hanjoonseok-language") === "en" ? "en" : "ko");
