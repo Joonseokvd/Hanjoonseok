@@ -22,7 +22,7 @@
     "이 전시의 모든 것은 거짓이다": "Everything in This Exhibition Is a Lie",
     "이낙규": "Lee Nakkyu",
     "노기훈": "Noh Gihoon",
-    "안그라픽스": "Ahn Graphics",
+    "건국대학교 의상디자인학과": "Department of Apparel Design, Konkuk University",
     "전시 ENCORE!, 홍익대학교 미술대학 R777": "ENCORE! Exhibition, R777, Hongik University College of Fine Arts",
     "전시 Unboxing New Printer, 홍익대학교 미술대학 R777": "Unboxing New Printer Exhibition, R777, Hongik University College of Fine Arts",
     "발표: 인공지능 과제수행 프로젝트, 한국디자인사학회": "Conference Presentation: Design with AI Project, Korean Society of Design History",
