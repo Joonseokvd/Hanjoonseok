@@ -154,6 +154,32 @@
     return typeof value === "string" ? value : value[lang];
   }
 
+  function applyNavigationLanguage(lang) {
+    const labels = {
+      work: { en: "Han Joonseok", ko: "한준석" },
+      about: { en: "About", ko: "소개" },
+      cv: { en: "CV", ko: "이력" },
+      sns: { en: "SNS", ko: "인스타그램" },
+      contact: { en: "Contact", ko: "연락하기" }
+    };
+
+    document.querySelectorAll("header nav a").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const key = href.startsWith("mailto:")
+        ? "contact"
+        : href.includes("instagram.com")
+          ? "sns"
+          : href.endsWith("about.html")
+            ? "about"
+            : href.endsWith("cv.html")
+              ? "cv"
+              : href.endsWith("work.html")
+                ? "work"
+                : null;
+      if (key) link.textContent = labels[key][lang];
+    });
+  }
+
   function applyMultilingualTypography(root = document.body) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
@@ -186,6 +212,7 @@
   function applyLanguage(lang) {
     document.documentElement.lang = lang;
     document.body.dataset.language = lang;
+    applyNavigationLanguage(lang);
 
     if (path.endsWith("/about.html")) {
       const intro = document.querySelector(".intro p");
