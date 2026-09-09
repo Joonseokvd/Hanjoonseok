@@ -163,7 +163,7 @@
       contact: { en: "Contact", ko: "연락하기" }
     };
 
-    document.querySelectorAll("header nav a").forEach(link => {
+    document.querySelectorAll("nav a").forEach(link => {
       const href = link.getAttribute("href") || "";
       const key = href.startsWith("mailto:")
         ? "contact"
