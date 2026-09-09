@@ -223,6 +223,9 @@
     }
 
     if (path.endsWith("/cv.html")) {
+      document.querySelectorAll(".cv h2[data-en][data-ko]").forEach(heading => {
+        heading.textContent = heading.dataset[lang];
+      });
       document.querySelectorAll(".cv .details").forEach(item => {
         remember(item);
         const ko = original.get(item).trim();
